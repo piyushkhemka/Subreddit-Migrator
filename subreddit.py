@@ -22,6 +22,12 @@ subreddits_new_account = list(new_account.user.subreddits(limit=None))
 for counter, sub in enumerate(subreddits_old_account):
     new_account.subreddit(sub.display_name).subscribe()
     print(f'Subscribed to {sub.display_name}')
-    if counter % 10 == 0:
+    if counter % 100 == 0:
         time.sleep(5)
-        print(f'Resting for 5 seconds before we resume again \n')
+        print(f'\nPhew!!! 100 subreddits subscribed already. ' +
+              'Going to rest for 5 secs real quick. Nothing to worry. ' +
+              'I will be back up very soon \n')
+    elif counter % 10 == 0:
+        time.sleep(2)
+        print(f'\nResting for 2 seconds before we resume again \n')
+print(f'\n\n\nAll done. Happy redditing!!!\n')
