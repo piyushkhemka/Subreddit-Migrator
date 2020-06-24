@@ -1,0 +1,7 @@
+{
+    "username" : "Add username of new account here",
+    "password" : "Add Password of new account here",
+    "client_id" : "Add client id here",
+    "client_secret" : "Add client secret here",
+    "user_agent" : "github.subreddit.transfer:v1.0.0 u/new username"
+}
