@@ -1,7 +1,8 @@
 ## Subreddit Migrator
 
-This allows you to migrate your subreddits from one account to the other.
+Reddit doesn't make it easy for you to migrate your subreddits from one account to the other but there is a workaround.
 
+Follow the following steps to make your new account subscribe to all the subreddits that your old account was subscribed to.
 
 
 1. Login to your old account. Visit https://www.reddit.com/prefs/apps
@@ -20,9 +21,9 @@ This allows you to migrate your subreddits from one account to the other.
 ![getting client id & secret](./img/3.png)
 
 4. Copy client_id & client_secret code into old_user_config.json
-5. Put down your username & password in username & password section.
-6. Repeat steps 1 to 5 with new account. Copy the client_id & client_secret code into new_user_config.json. Add your username & password of the new account there as well
-7. Run the file subreddit.py.
+5. Put down your username & password in username & password section. Don't worry, the code always stay on your local machine. It is only used to authenticate your account.
+6. Repeat steps 1 to 5 with your new account. Copy the client_id & client_secret code into new_user_config.json. Add your username & password of the new account there as well.
+7. Run the file subreddit.py. CD into the folder containing the file & run the command -
 
 ```
 python subreddit.py
