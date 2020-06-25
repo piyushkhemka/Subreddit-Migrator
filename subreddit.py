@@ -22,7 +22,7 @@ subreddits_new_account = list(new_account.user.subreddits(limit=None))
 for counter, sub in enumerate(subreddits_old_account):
     new_account.subreddit(sub.display_name).subscribe()
     print(f'Subscribed to {sub.display_name}')
-    if counter % 100 == 0:
+    if (counter % 100 == 0 and counter > 0):
         time.sleep(5)
         print(f'\nPhew!!! 100 subreddits subscribed already. ' +
               'Going to rest for 5 secs real quick. Nothing to worry. ' +
