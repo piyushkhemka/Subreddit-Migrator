@@ -15,12 +15,17 @@ new_account = praw.Reddit(username=config.username_new,
                      user_agent=config.user_agent_new)
 
 subreddits_old_account = list(old_account.user.subreddits(limit=None))
+
+
 print(f'Old account subscribed to {len(subreddits_old_account)} subreddits.\n\n')
 
+
 subreddits_new_account = list(new_account.user.subreddits(limit=None))
+print(f'New account subscribed to {len(subreddits_new_account)} subreddits.\n\n')
 
 for counter, sub in enumerate(subreddits_old_account):
-    new_account.subreddit(sub.display_name).subscribe()
+    if(sub.display_name.startswith('u_')):
+        print("Skipping user")
     print(f'Subscribed to {sub.display_name}')
     if (counter % 100 == 0 and counter > 0):
         time.sleep(5)
@@ -30,4 +35,6 @@ for counter, sub in enumerate(subreddits_old_account):
     elif (counter % 10 == 0 and counter > 0):
         time.sleep(2)
         print(f'\nResting for 2 seconds before we resume again \n')
+print(f'Old account subscribed to {len(subreddits_old_account)} subreddits.\n\n')
+print(f'New account is now subscribed to {len(subreddits_new_account)} subreddits.\n\n')
 print(f'\n\n\nAll done. Happy redditing!!!\n')
