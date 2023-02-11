@@ -16,11 +16,10 @@ new_account = praw.Reddit(username=config.username_new,
 
 subreddits_old_account = list(old_account.user.subreddits(limit=None))
 
-
 print(f'Old account subscribed to {len(subreddits_old_account)} subreddits.\n\n')
 
-
 subreddits_new_account = list(new_account.user.subreddits(limit=None))
+
 print(f'New account is subscribed to {len(subreddits_new_account)} subreddits before starting the migration.\n\n')
 
 for counter, sub in enumerate(subreddits_old_account):
