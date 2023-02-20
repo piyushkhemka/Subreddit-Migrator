@@ -19,7 +19,14 @@ print(f'Old account subscribed to {len(subreddits_old_account)} subreddits.\n\n'
 
 subreddits_new_account = list(new_account.user.subreddits(limit=None))
 
+print(f'New account is subscribed to {len(subreddits_new_account)} ' +
+       'subreddits before starting the migration.\n\n')
+
 for counter, sub in enumerate(subreddits_old_account):
+    if (sub.display_name.startswith('u_')):
+        print(f'Skipping user {sub.display_name}')
+        continue
+
     new_account.subreddit(sub.display_name).subscribe()
     print(f'Subscribed to {sub.display_name}')
     if (counter % 100 == 0 and counter > 0):
@@ -30,4 +37,7 @@ for counter, sub in enumerate(subreddits_old_account):
     elif (counter % 10 == 0 and counter > 0):
         time.sleep(2)
         print(f'\nResting for 2 seconds before we resume again \n')
+
+subreddits_new_account = list(new_account.user.subreddits(limit=None))
+print(f'New account is now subscribed to {len(subreddits_new_account)} subreddits.\n\n')
 print(f'\n\n\nAll done. Happy redditing!!!\n')
